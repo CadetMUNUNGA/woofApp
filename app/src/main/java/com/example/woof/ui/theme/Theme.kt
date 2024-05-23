@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Shapes
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -212,8 +213,8 @@ fun WoofTheme(
             if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
         }
 
-        darkTheme -> DarkColorScheme
-        else -> LightColorScheme
+        darkTheme -> darkScheme
+        else -> lightScheme
     }
     val view = LocalView.current
     if (!view.isInEditMode) {
@@ -227,6 +228,7 @@ fun WoofTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
+        shapes = Shapes(),
         content = content
     )
 }
